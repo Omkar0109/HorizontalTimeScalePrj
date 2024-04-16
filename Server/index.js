@@ -1,29 +1,19 @@
-var exp= require("express")
-var mysl=require("mysql2")
-var cor=require("cors")
-var bp=require("body-parser")
+const express = require('express');
+const path = require('path');
+const cors = require('cors'); // Import the cors middleware
+const app = express();
+const PORT = process.env.PORT || 5000;
 
-var con=mysl.createConnection({
-    host:"localhost",
-    database:"ridehub",
-    password:"omkar",
-    user:"root"
+const dataFilePath = path.join(__dirname, 'sample-data.json');
+
+// Use cors middleware to enable CORS
+app.use(cors());
+
+app.get('/api/data', (req, res) => {
+  res.sendFile(dataFilePath);
 });
 
-con.connect(function(err){
-    if(!err)
-    {
-        console.log("Db connected");
-    }
-    else{
-        console.log("db not connected");
-    }
-})
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 
-var app=exp()
-
-app.use(cor())
-app.use(bp.json())
-app.listen(9000,function(){
-    console.log("exp-Rest-server-900-started")
-})
+});
