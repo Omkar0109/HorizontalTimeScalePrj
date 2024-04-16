@@ -1,38 +1,43 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button-container {
+  position: absolute;
+  top: 20px; /* Adjust top position as needed */
+  right: 20px; /* Adjust right position as needed */
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  padding: 10px;
 }
 
-.App-link {
-  color: #61dafb;
+.button {
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px; /* Adjust margin between buttons as needed */
+  margin-left: 10px;
+  margin-top:10px ;
+  background-color: #2d3034; /* Blue color */
+  color: rgb(248, 242, 242);
+  border: none;
+  
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.button:hover {
+  background-color: #234161; /* Darker blue color on hover */
+}
+.timeline {
+  display: flex;
+  flex-direction: row;
+}
+
+.timeline-item {
+  width: 0.265px; /* Width of the vertical line */
+  height: 40px; /* Height of the vertical line */
+  margin-top: 20px; /* Spacing between lines */
+}
+
+.yellow {
+  background-color: yellow; /* Color for machine_status 1 */
+}
+
+.green {
+  background-color: green; /* Color for machine_status 0 */
 }
